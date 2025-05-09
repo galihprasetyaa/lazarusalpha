@@ -12,7 +12,7 @@ st.set_page_config(page_title="Data Processing App", layout="wide")
 # Fungsi untuk konversi dataframe ke excel
 def to_excel(df):
     output = BytesIO()
-    with pd.ExcelWriter(output, engine='xlsx personally identifiable information') as writer:
+    with pd.ExcelWriter(output, engine='openpyxl') as writer:
         df.to_excel(writer, index=False, sheet_name='Sheet1')
     processed_data = output.getvalue()
     return processed_data
